@@ -1,0 +1,12 @@
+.header {
+  display: block;
+  text-align: center;
+  padding: 24px 0 38px;
+
+  &__logo {
+    > svg {
+      width: 60px;
+      height: 61px;
+    }
+  }
+}
