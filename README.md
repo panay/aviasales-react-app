@@ -1,4 +1,4 @@
 # aviasales-react-app
 
-#RUN:
+# RUN:
 `npm run start:dev`
