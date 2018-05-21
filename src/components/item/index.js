@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
-import logo from "../assets/svg/example_logo.svg";
-import airplane from "../assets/svg/airplane.svg";
+import logo from "../../assets/svg/example_logo.svg";
+import airplane from "../../assets/svg/airplane.svg";
 
-export function Item({ price }) {
+export function Item(props) {
   return (
     <div className="item">
       <div className="item__logo">
@@ -11,7 +11,7 @@ export function Item({ price }) {
           <use xlinkHref="#example_logo" />
         </svg>
         <a href="#buy" className="btn">
-          Купить за {price}
+          Купить за {props.value}
         </a>
       </div>
       <div className="item__data">

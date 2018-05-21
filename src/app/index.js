@@ -1,13 +1,20 @@
 import React from "react";
 import { render } from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 
-import { Header } from "../header";
-import { Filter } from "../filter";
-import { List } from "../list";
+import { Header } from "../components/header";
+import { Filter } from "../components/filter";
+import { List } from "../containers/list";
+
+import rootReducer from "../store/reducers";
 
 import "./style.scss";
 
-function App() {
+const appStore = createStore(rootReducer, applyMiddleware(thunk));
+
+export default function App() {
   return (
     <div className="wrapper">
       <Header />
@@ -16,7 +23,7 @@ function App() {
           <Filter />
         </div>
         <div className="wrapper-content__content">
-          <List />
+          <List {...appStore} />
         </div>
       </div>
     </div>
@@ -24,6 +31,8 @@ function App() {
 }
 
 render(
-  <App />,
+  <Provider store={appStore}>
+    <App />
+  </Provider>,
   document.getElementById("app")
 );
